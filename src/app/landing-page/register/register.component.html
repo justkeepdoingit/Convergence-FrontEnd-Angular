@@ -1,0 +1,43 @@
+<div class="register" @fadeIn>
+    <h2>Be a part of Our Community and Create Your own Blog!</h2>
+    <form [formGroup]='registerForm' #formDirective='ngForm' (ngSubmit)='registerSubmit(registerForm.value, formDirective)'>
+        <div class="name">
+            <mat-form-field hideRequiredMarker class="example-full-width" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input formControlName='name' matInput autocomplete="off">
+                <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="username">
+            <mat-form-field hideRequiredMarker class="example-full-width" appearance="outline">
+                <mat-label>Username</mat-label>
+                <input formControlName='username' matInput autocomplete="off">
+                <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="password">
+            <mat-form-field hideRequiredMarker class="example-full-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input formControlName='password' matInput [type]="hidePass ? 'password' : 'text'" matInput autocomplete="off">
+                <button type="button" mat-icon-button matSuffix (click)="hidePass = !hidePass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePass">
+                    <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="confirmPass">
+            <mat-form-field hideRequiredMarker appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input formControlName='confirmPass' matInput [type]="hideConfPass ? 'password' : 'text'">
+                <button type="button" mat-icon-button matSuffix (click)="hideConfPass = !hideConfPass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfPass">
+                  <mat-icon>{{hideConfPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+        </div>
+        <span class="error" *ngIf="registerForm.errors?.['passMatch']">Password does not match</span>
+        <div class="registerSubmit">
+            <div class="submit">
+                <button [disabled]='!registerForm.valid' type="submit" mat-raised-button>Register</button>
+            </div>
+        </div>
+    </form>
+</div>

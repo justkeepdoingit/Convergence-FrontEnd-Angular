@@ -1,0 +1,47 @@
+<body>
+    <nav>
+        <ul>
+            <li>
+                <div class="logo"></div>
+            </li>
+            <li>
+                <form>
+                    <div>
+                        <input placeholder="Search Articles">
+                        <mat-icon>search</mat-icon>
+                    </div>
+                </form>
+            </li>
+            <li *ngIf='newsFeed'><a>Feed</a></li>
+            <li><a>Create New Blog</a></li>
+            <li id="profile"><a (click)='profileRouter()'>Profile</a></li>
+            <div class="dropdown">
+                <div class="blocknotif" (click)='showNotif()'>
+                    <mat-icon id="notif">notifications</mat-icon>
+                    <mat-icon id="dropdown" *ngIf="!notif">arrow_drop_down</mat-icon>
+                    <mat-icon id="dropdown" *ngIf="notif">arrow_drop_up</mat-icon>
+                </div>
+                <div class="dropdown-content" *ngIf="dropdownNotif" @fadeIn>
+                    <div class="sticky">
+                        Notifications
+                        <mat-icon>settings</mat-icon>
+                    </div>
+                    <div class="activeNotifications">
+                        <ul class="hiddenNotif">
+                            <li>akjsda jhagshd ajhsgdja sjhgdajs gajsdghaj s gjaghsd</li>
+                            <li>hi</li>
+                            <li>hi</li>
+                            <li>akjsda jhagshd ajhsgdja sjhgdajs gajsdghaj s gjaghsd</li>
+                            <li>hi</li>
+                            <li>hi</li>
+                            <li>uasydkasnh</li>
+                        </ul>
+                    </div>
+                    <div class="seeAllNotif">
+                        <span>See All</span>
+                    </div>   
+                </div>
+            </div>
+        </ul>
+    </nav>
+</body>

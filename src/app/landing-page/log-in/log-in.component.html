@@ -1,0 +1,28 @@
+<div class="login" @fadeIn>
+    <div class="form">
+    <h2>Hi, Welcome Back! Please log in</h2>
+    <form [formGroup]='loginForm' #formDirective='ngForm' (ngSubmit)='submitLogin(loginForm.value, formDirective)'>
+        <div class="username">
+            <mat-form-field hideRequiredMarker class="example-full-width" appearance="outline">
+                <mat-label>Username</mat-label>
+                <input formControlName='username' matInput autocomplete="off">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <span *ngIf='username?.touched && username?.invalid'>Username Required</span>
+            </mat-form-field>
+        </div>
+        <div class="password">
+            <mat-form-field hideRequiredMarker class="example-full-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input formControlName='password' matInput [type]="hide ? 'password' : 'text'" matInput autocomplete="off">
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <span *ngIf='password?.touched && password?.invalid'>Password Required</span>
+            </mat-form-field>
+            <div class="submit">
+                <button [disabled]='loginForm.invalid' type="submit" mat-raised-button>Log-in</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>

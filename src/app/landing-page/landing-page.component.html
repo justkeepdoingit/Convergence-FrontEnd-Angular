@@ -1,0 +1,72 @@
+<body>
+    <div class="nav">
+        <div class="left">
+            <div id="logo" (click)='returnLanding()'>
+                <span *ngIf='landingHidden'>Return to Landing Page</span>
+            </div>
+        </div>
+        <div [ngClass]='hiddenNav' (click)='showNav()'>
+            <div class="loginreg">
+                <div id="login">
+                    <button routerLink='Log-In'>Login</button>
+                </div>
+                <div id="register" routerLink='Register'>
+                    <button>Register</button>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger">
+            <mat-icon (click)='showNav()'>menu</mat-icon>
+        </div>
+    </div>
+
+    <div class="middle" *ngIf='!landingHidden'>
+        <div id="header" @fadeUp>
+            <blockquote>
+                <q>It's better to fail in <span>originality</span> than to succeed in imitation</q><br><br>
+                <cite>-Herman Melville</cite>
+             </blockquote>     
+        </div>
+        <div class="body">
+            <div id="left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, corporis. 
+                   Excepturi, sit corporis nihil alias exercitationem inventore aliquid, quia ab, animi hic expedita recusandae rerum? 
+                   Quisquam eligendi vel natus! Voluptatibus?
+                </p>
+            </div>
+            <div id="right" @fadeSlideRight>
+                <p>Want to write a story about <span>News</span>? How about your <span>Hobbies?</span></p>
+
+                <p>You can write anything from what interests you
+                to inspiring people with your own blog! Create your profile now and start <span id='blogs'>Blogging</span>!
+                </p>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+
+        <footer>
+                <div class="contact">
+                    Contact:<br>
+                    <span>amanciojoris23@gmail.com</span><br>
+                    <span>09158435535</span>
+                </div>
+                <div class="social">
+                    Social Media:<br>
+                    <span><img src="../../assets/facebook.jpg" alt="facebook" height="25" width="25"></span>
+                    <span><img src="../../assets/instagram.jpg" alt="instagram" height="25" width="25"></span>
+                    <span><img src="../../assets/github.jpg" alt="github" height="25" width="25"></span>
+                </div>
+                <div class="aboutUs">
+                    About Me
+                </div>
+                <div class="moreProjects">
+                    More Projects Like This
+                </div>
+                <div class="company">
+                    <img src="../../assets/logo.png" alt="github" height="80" width="80">
+                    <span>Convergence Inc.</span>
+                </div>
+        </footer>
+</body>
+
